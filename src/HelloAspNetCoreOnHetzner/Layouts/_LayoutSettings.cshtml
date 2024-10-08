@@ -1,0 +1,21 @@
+@using HelloAspNetCoreOnHetzner.Components.NavigationItemTagHelper
+@using Tailwind.Heroicons
+@{ Layout = "ThreeColumnFullWidthLayout"; }
+
+@{
+  var items = new List<NavigationItem>();
+  };
+}
+
+@section SecondaryColumn {
+  <aside class="px-6 pb-4 pt-6">
+    <nav hx-boost="true">
+      @foreach (var item in items)
+      {
+        <navigation-item item="item"></navigation-item>
+      }
+    </nav>
+  </aside>
+}
+
+@RenderBody()

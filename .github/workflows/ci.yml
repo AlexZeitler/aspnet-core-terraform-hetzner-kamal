@@ -29,8 +29,8 @@ jobs:
         run: |
           cd src 
           dotnet build --configuration $config --no-restore
-          cd AspNetMartenHtmxVsa
-          docker build . -t aspnetmartenhtmxvsa
+          cd HelloAspNetCoreOnHetzner
+          docker build . -t helloaspnetcoreonhetzner
       - name: Test
         run: |
           cd src 

@@ -1,3 +1,0 @@
-namespace AspNetMartenHtmxVsa.Features.Subscriptions.SetCompanyNameFromUserRegistration;
-
-public record CompanyNameSetFromUserRegistration(string CompanyName);

@@ -1,0 +1,47 @@
+@using HelloAspNetCoreOnHetzner.Features.Account
+@inject SignInManager<AppUser> SignInManager
+@inject UserManager<AppUser> UserManager
+
+<div class="bg-red-200">Login Partial</div>
+<ul class="navbar-nav">
+  @if (SignInManager.IsSignedIn(User))
+  {
+    <li class="nav-item">
+      <a asp-area="Identity"
+         asp-page="/Account/Manage/Index"
+         class="nav-link text-dark"
+         id="manage"
+         title="Manage">Hello @UserManager.GetUserName(User)!</a>
+    </li>
+    <li class="nav-item">
+      @{
+        var returnUri = new Uri(@Url.ActionLink("GetHome", "GetHome")).PathAndQuery;
+      }
+      <form asp-action="Login"
+            asp-controller="Login"
+            asp-route-returnUrl="@returnUri"
+            class="form-inline"
+            id="logoutForm">
+        <button class="nav-link btn btn-link text-dark border-0"
+                id="logout"
+                type="submit">Logout</button>
+      </form>
+    </li>
+  }
+  else
+  {
+    <li class="nav-item">
+      <a asp-action="Register"
+         asp-controller="Register"
+         class="nav-link text-dark"
+         id="register">Register</a>
+    </li>
+    <li class="nav-item">
+      <a asp-action="Login"
+         asp-controller="Login"
+
+         class="nav-link text-dark"
+         id="login">Login</a>
+    </li>
+  }
+</ul>

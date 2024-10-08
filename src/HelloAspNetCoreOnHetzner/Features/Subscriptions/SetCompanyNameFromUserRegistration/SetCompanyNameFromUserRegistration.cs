@@ -1,0 +1,3 @@
+namespace HelloAspNetCoreOnHetzner.Features.Subscriptions.SetCompanyNameFromUserRegistration;
+
+public record CompanyNameSetFromUserRegistration(string CompanyName);
